@@ -1,0 +1,34 @@
+:root {
+    background-color: midnightblue;
+    color: whitesmoke;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+    color: var(--white);
+}
+
+.index_Navbar {
+    display: -webkit-flex; /* Safari, iOS */
+    display: flex;
+    -webkit-justify-content: space-between; /* Safari, iOS */
+    justify-content: space-between;
+}
+
+.Navbar_content {
+    flex: 1 1 auto;
+    text-align: center;
+}
+
+.Navbar_children_content {
+    margin: 10px;
+    padding: 12px;
+}
+
+.index_idea {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 50px;
+    text-align: center;
+    padding: 50px;
+}
