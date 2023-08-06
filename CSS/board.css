@@ -1,0 +1,38 @@
+html {
+     overflow: hidden
+}
+
+body {
+    margin: 0;
+}
+
+.root1 {
+    background-color: #000D52;
+    position: relative;
+    padding: 0 0 0 180px;
+    height: auto;
+    width: auto;
+}
+
+.root2 {
+    background-color: #737373;
+    padding: 40px 0 0 0 ;
+    height: auto;
+    width: auto;
+}
+
+.root3 {
+    background-color: #C6C6C6;
+    height: 100%;
+    width: auto;
+    background-image: url("../images/border.png");
+    background-size: 15px;
+}
+
+.user_tab {
+    background-color: #000000;
+    position: fixed;
+    bottom: 0; left: 0;
+    height: 50px;
+    width: 180px;
+}
