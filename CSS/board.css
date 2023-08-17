@@ -36,3 +36,28 @@ body {
     height: 50px;
     width: 180px;
 }
+
+.file-drop-area {
+    border: 2px dashed #aaa;
+    padding: 20px;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.file-drop-area.drag-over {
+    background-color: lightgray;
+}
+
+.icon-area {
+    height: 100%;
+    width: auto;
+    margin-top: 10px;
+}
+
+.file-icon {
+    display: inline-block;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    padding: 5px;
+    margin: 5px;
+}
