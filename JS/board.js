@@ -48,17 +48,13 @@ function previewFile(file) {
         var fileContainer = document.createElement('div');
         fileContainer.classList.add('file-container');
 
-        // リサイズハンドルを追加
-        var resizeHandle = document.createElement('div');
-        resizeHandle.classList.add('resize-handle');
-        fileContainer.appendChild(resizeHandle);
-
         if (file.type.startsWith('image/')) {
             // 画像ファイルの場合
             var container = document.createElement('div');
             container.style.width = '50%';
             container.style.height = 'auto';
             container.style.overflow = 'auto';
+            container.style.resize = 'both';
 
             var img = document.createElement('img');
             img.setAttribute('src', fr.result);
@@ -86,37 +82,3 @@ function previewFile(file) {
     };
     fr.readAsDataURL(file);
 }
-
-const resizeHandle = document.querySelector('.resize-handle');
-const imageContainer = document.querySelector('.image-container');
-const image = imageContainer.querySelector('img');
-
-let isResizing = false;
-
-resizeHandle.addEventListener('mousedown', (e) => {
-    isResizing = true;
-    const startX = e.clientX;
-    const startY = e.clientY;
-
-    const startWidth = parseFloat(getComputedStyle(imageContainer).width);
-    const startHeight = parseFloat(getComputedStyle(imageContainer).height);
-
-    const mouseMoveHandler = (e) => {
-        if (!isResizing) return;
-
-        const deltaX = e.clientX - startX;
-        const deltaY = e.clientY - startY;
-
-        imageContainer.style.width = startWidth + deltaX + 'px';
-        imageContainer.style.height = startHeight + deltaY + 'px';
-    };
-
-    const mouseUpHandler = () => {
-        isResizing = false;
-        window.removeEventListener('mousemove', mouseMoveHandler);
-        window.removeEventListener('mouseup', mouseUpHandler);
-    };
-
-    window.addEventListener('mousemove', mouseMoveHandler);
-    window.addEventListener('mouseup', mouseUpHandler);
-});
