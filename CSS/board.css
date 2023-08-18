@@ -29,6 +29,11 @@ body {
     background-size: 15px;
 }
 
+.file-container {
+    height: 100%;
+    width: auto;
+}
+
 .user_tab {
     background-color: #000000;
     position: fixed;
