@@ -13,26 +13,27 @@ board.addEventListener('dragleave', function (e) {
 // ドロップされたときにどうなるかのイベントハンドラ
 board.addEventListener('drop', function (e) {
     e.preventDefault();
-    target = e.target;
     const files = e.dataTransfer.files;
     const x = e.clientX - board.getBoundingClientRect().left; // ドロップされた位置のX座標
     const y = e.clientY - board.getBoundingClientRect().top;  // ドロップされた位置のY座標
 
-    if (isUpFile(target)) {
-        previewFile(target, x, y);
-    } else {
-        handleDroppedFiles(files, x, y);
+    for (const file of files) {
+        previewFile(file, x, y);
     }
 }, false);
 
 function isUpFile(tg) {
-    const upFiles = document.querySelectorAll('.upFile');
+    const divElements = board.querySelectorAll("div"); // id="board" の直下にあるすべての div 要素を取得
+    const tgId = tg.getAttribute("id");
 
-    if (!upFiles.length) return false;
-
-    for (const upFile of upFiles) {
-        if (upFile == tg) return true;
+    for (const div of divElements) {
+        divId = div.getAttribute("id");
+        if (divId == tgId) {
+            console.log("This is already Drop.")
+            return true;
+        }
     }
+    console.log("This is not already Drop.")
     return false;
 }
 
@@ -64,7 +65,7 @@ function previewFile(file, x, y) {
         if (file.type.startsWith('image/')) {
             // 画像ファイルの場合
             var container = document.createElement('div');
-            container.id = "upFile"
+            container.id = file.name
             container.style.width = '30%';
             container.style.height = 'auto';
             container.style.overflow = 'auto';

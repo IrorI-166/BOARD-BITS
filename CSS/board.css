@@ -16,7 +16,7 @@ body {
 
 .root2 {
     background-color: #737373;
-    padding: 40px 0 0 0 ;
+    padding: 40px 0 0 0;
     height: auto;
     width: auto;
 }
@@ -27,11 +27,48 @@ body {
     width: auto;
     background-image: url("../images/border.png");
     background-size: 15px;
+    display: flex; /* 追加 */
+    flex-direction: column; /* 追加 */
+    align-items: flex-end; /* 追加 */
 }
 
-.file-container {
+.func-plus-container {
+    background-color: black;
+    width: 50px;
+    height: 50px;
+    border-radius: 10px 20px;
+    position: relative;
+    margin-top: 720px; /* 追加 */
+    margin-right: auto; /* 追加 */
+    margin-left: 50px; /* 追加 */
+    margin-bottom: auto; /* 追加 */
+}
+
+.func-plus {
+    display: inline-block;
+    vertical-align: middle;
+    color: white;
+    line-height: 1;
+    width: 1em;
+    height: 0.1em;
+    background: currentColor;
+    border-radius: 0.1em;
+    position: absolute;
+    top: 50%; /* 中央寄せのために追加 */
+    left: 50%; /* 中央寄せのために追加 */
+    transform: translate(-50%, -50%); /* 中央寄せのために追加 */
+}
+
+.func-plus::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
     height: 100%;
-    width: auto;
+    background: inherit;
+    border-radius: inherit;
+    transform: rotate(90deg);
 }
 
 .user_tab {
